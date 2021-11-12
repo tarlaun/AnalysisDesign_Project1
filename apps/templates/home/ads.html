@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page 404 {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    {% comment %} <div class="row">
+        <div class="col-md-12">
+            <div class="card card-profile">
+                <div class="card-body">
+                    <h6 class="card-category text-gray">Error 403</h6>
+                    <h4 class="card-title">
+                        Access Denied - please authenticate
+                    </h4>
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-round">Login</a>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+    {% if ads %}
+        There are {{ ads|length }} records:
+        {% for ad in ads %}
+            <h4>{{ad.first_name}}</h4>
+            {% comment %} <td> Preview  Edit  Duplicate  Delete </td>
+            <td> FlagPath </td>
+            <td> AchievementType / RIAchievementTypeUserDescription </td>
+            <td> {{ e.riAchievementDescription }} </td> {% endcomment %}
+        {% endfor %}
+    {% else %}
+        There are no records in the system
+    {% endif %}
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
