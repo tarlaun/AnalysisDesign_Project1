@@ -6,29 +6,35 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-
-    {% comment %} <div class="row">
-        <div class="col-md-12">
-            <div class="card card-profile">
-                <div class="card-body">
-                    <h6 class="card-category text-gray">Error 403</h6>
-                    <h4 class="card-title">
-                        Access Denied - please authenticate
-                    </h4>
-                    <a href="{% url 'login' %}" class="btn btn-primary btn-round">Login</a>
-                </div>
-            </div>
-        </div>
-    </div> {% endcomment %}
-
     {% if ads %}
-        There are {{ ads|length }} records:
+        There are {{ ads|length }} ads:
         {% for ad in ads %}
-            <h4>{{ad.first_name}}</h4>
-            {% comment %} <td> Preview  Edit  Duplicate  Delete </td>
-            <td> FlagPath </td>
-            <td> AchievementType / RIAchievementTypeUserDescription </td>
-            <td> {{ e.riAchievementDescription }} </td> {% endcomment %}
+            {% comment %} <div class="row">
+                <div> {% endcomment %}
+                    <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h3 class="card-title"><b>Patient:</b> {{ ad.first_name }} {{ ad.last_name }}</h3>
+                        <div>
+                            <p class="card-text"><b>Sex:</b> {{ ad.sex }}</p>
+                        </div>
+
+                        <div>
+                            <p class="card-text"><b>Address:</b> {{ ad.address }}</p>
+                        </div>
+
+                        <div>
+                            <p class="card-text"><b>Phone Number:</b> {{ ad.phone_number }}</p>
+                        </div>
+
+                        <div>
+                            <p class="card-text"><b>Requested Service:</b> {{ ad.service_type }}</p>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="button_click()">Accept</button>
+                    </div>
+                    </div>
+                {% comment %} </div>
+            </div> {% endcomment %}
         {% endfor %}
     {% else %}
         There are no records in the system
@@ -38,4 +44,10 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+    <script type="text/javascript"> 
+        function button_click() {
+            console.log("salam")
+        }
+    </script>
+{% endblock javascripts %}
