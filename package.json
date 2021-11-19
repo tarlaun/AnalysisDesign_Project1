@@ -16,6 +16,8 @@
     "engines": {
         "node": ">=10.0.0"
     },
-    "dependencies": {},
+    "dependencies": {
+        "toastr": "^2.1.4"
+    },
     "devDependencies": {}
 }

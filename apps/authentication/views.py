@@ -11,6 +11,8 @@ from .forms import LoginForm, SignUpForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_protect
+from django.contrib import messages
+from django.contrib.messages import get_messages
 
 def init_view(request):
     if request.user.is_authenticated:
@@ -34,6 +36,10 @@ def login_view(request):
             password = form.cleaned_data.get("password")
             user = authenticate(username=username, password=password)
             if user is not None:
+                messages.add_message(request, messages.INFO, 'You logged in successfully.')
+                storage = get_messages(request)
+                for message in storage:
+                    print("+++++++++++ messages:", message)
                 login(request, user)
                 return redirect("/")
             else:

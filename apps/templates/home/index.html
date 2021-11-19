@@ -4,6 +4,8 @@
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
+<link href="toastr.css" rel="stylesheet"/>
+<script src="toastr.js"></script>
 
 {% block content %}
 
@@ -253,7 +255,25 @@
       </div>
     </div>
 
+{% if messages %}
+<div>salammmmmmmmmmm</div>
+<!--{% for message in messages %}-->
+<!--<script type="text/javascript">console.log("1.hereeeeee", message);</script>-->
+<!--{% if message.tags == 'success'%}-->
+<!--<script type=text/javascript>console.log("hereeeeee");toastr.success('{{ message }}')</script>-->
+<!--{% elif message.tags == 'info' %}-->
+<!--<script type=text/javascript>console.log("hereeeeee");toastr.info('{{ message }}')</script>-->
+<!--{% elif message.tags == 'warning' %}-->
+<!--<script type=text/javascript>console.log("hereeeeee");toastr.warning('{{ message }}')</script>-->
+<!--{% elif message.tags == 'error' %}-->
+<!--<script type=text/javascript>console.log("hereeeeee");toastr.error('{{ message }}')</script>-->
+<!--{% endif %}-->
+<!--{% endfor %}-->
+{% endif %}
+
 {% endblock content %}
+
+
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
